@@ -17,10 +17,20 @@ export default class ReviewCards extends React.Component {
 
   nextCard() {
     if (this.state.currentCard === this.context.cards.length - 1) {
-      return this.setState({ currentCard: 0 });
+      this.setState({ currentCard: 0 });
     } else {
-      return this.setState({ currentCard: this.state.currentCard + 1 });
+      this.setState({ currentCard: this.state.currentCard + 1 });
     }
+    this.context.setActiveCard(this.state.currentCard);
+  }
+
+  previousCard() {
+    if (this.state.currentCard === 0) {
+      this.setState({ currentCard: this.context.cards.length - 1 });
+    } else {
+      this.setState({ currentCard: this.state.currentCard - 1 });
+    }
+    this.context.setActiveCard(this.state.currentCard);
   }
 
   render() {
