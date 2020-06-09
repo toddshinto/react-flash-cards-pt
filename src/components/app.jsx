@@ -17,6 +17,7 @@ export default class App extends React.Component {
     this.getView = this.getView.bind(this);
     this.addCard = this.addCard.bind(this);
     this.saveCards = this.saveCards.bind(this);
+    this.setActiveCard = this.setActiveCard.bind(this);
   }
 
   setView(hello) {
