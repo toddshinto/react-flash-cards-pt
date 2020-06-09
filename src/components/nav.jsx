@@ -3,12 +3,25 @@ import { AppContext } from './app-context';
 
 class Nav extends React.Component {
   render() {
+    const view = this.context.currentView;
     return (
-      <>
-        <button type="button" onClick={() => this.context.setView('view-cards')}>View Cards</button>
-        <button type="button" onClick={() => this.context.setView('review-cards')}>Review Cards</button>
-        <button type="button" onClick={() => this.context.setView('create-card')}>Create Card</button>
-      </>
+      <div className="row justify-content-end">
+        <button
+          type="button"
+          className={`btn ${view === 'view-cards' ? 'btn-primary' : 'btn-light'}`}
+          onClick={() => this.context.setView('view-cards')}>View Cards
+        </button>
+        <button
+          type="button"
+          className={`btn ${view === 'review-cards' ? 'btn-primary' : 'btn-light'}`}
+          onClick={() => this.context.setView('review-cards')}>Review Cards
+        </button>
+        <button
+          type="button"
+          className={`btn ${view === 'create-card' ? 'btn-primary' : 'btn-light'}`}
+          onClick={() => this.context.setView('create-card')}>Create Card
+        </button>
+      </div>
     );
   }
 }

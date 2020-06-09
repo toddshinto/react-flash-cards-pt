@@ -52,10 +52,8 @@ class App extends React.Component {
   }
 
   render() {
-    // eslint-disable-next-line no-console
-    console.log(this.state.cards);
     return (
-      <AppContext.Provider value={{ setView: this.setView, addCard: this.addCard }}>
+      <AppContext.Provider value={{ setView: this.setView, addCard: this.addCard, currentView: this.state.view }}>
         <h1 className="text-center">Flash Card App</h1>
         <div>
           <Nav />
