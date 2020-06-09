@@ -8,7 +8,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 'view-cards'
+      view: 'view-cards',
+      cards: []
     };
     this.setView = this.setView.bind(this);
     this.getView = this.getView.bind(this);
@@ -33,7 +34,13 @@ class App extends React.Component {
     }
   }
 
+  saveCards() {
+    const cards = JSON.stringify(this.state.cards);
+    localStorage.setItem('flash-cards', cards);
+  }
+
   render() {
+    console.log(this.state.cards);
     return (
       <>
         <h1 className="text-center">Flash Card App</h1>
