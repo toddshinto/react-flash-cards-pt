@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppContext } from './app-context';
 
-class Nav extends React.Component {
+export default class Nav extends React.Component {
   render() {
     const view = this.context.currentView;
     return (
@@ -27,4 +27,3 @@ class Nav extends React.Component {
 }
 
 Nav.contextType = AppContext;
-export default Nav;

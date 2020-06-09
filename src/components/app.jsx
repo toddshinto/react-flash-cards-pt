@@ -5,7 +5,7 @@ import CreateCard from './create-card';
 import Nav from './nav';
 import { AppContext } from './app-context';
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -65,5 +65,3 @@ class App extends React.Component {
     );
   }
 }
-
-export default App;

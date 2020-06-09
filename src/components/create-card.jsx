@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppContext } from './app-context';
 
-class CreateCard extends React.Component {
+export default class CreateCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,4 +64,3 @@ class CreateCard extends React.Component {
 }
 
 CreateCard.contextType = AppContext;
-export default CreateCard;
