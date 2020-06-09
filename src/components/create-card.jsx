@@ -40,20 +40,18 @@ class CreateCard extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="col-4 justify-content-center">
         <div className={`form-group border rounded-lg p-5 text-white ${this.state.question ? 'bg-info' : 'bg-secondary'}`}>
-          <input
+          <textarea
             className={'form-control '}
             onChange={this.handleChange}
-            type="text"
             placeholder="Question"
             name="question"
             id="question"
             value={this.state.question} />
         </div>
         <div className={`form-group border rounded-lg p-5 text-white ${this.state.answer ? 'bg-info' : 'bg-secondary'}`}>
-          <input
+          <textarea
             className="form-control"
             onChange={this.handleChange}
-            type="text"
             placeholder="Answer"
             name="answer"
             id="answer"
