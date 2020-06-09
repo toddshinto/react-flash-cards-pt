@@ -53,7 +53,12 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <AppContext.Provider value={{ setView: this.setView, addCard: this.addCard, currentView: this.state.view }}>
+      <AppContext.Provider value={{
+        setView: this.setView,
+        addCard: this.addCard,
+        currentView: this.state.view,
+        cards: this.state.cards
+      }}>
         <h1 className="text-center">Flash Card App</h1>
         <div>
           <Nav />
