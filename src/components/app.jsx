@@ -39,6 +39,12 @@ class App extends React.Component {
     localStorage.setItem('flash-cards', cards);
   }
 
+  addCard(card) {
+    const newDeck = this.state.cards.splice(0, this.state.cards.length);
+    newDeck.push(card);
+    this.setState(newDeck, () => this.saveCards());
+  }
+
   render() {
     console.log(this.state.cards);
     return (
