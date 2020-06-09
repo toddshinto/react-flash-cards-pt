@@ -54,9 +54,12 @@ export default class App extends React.Component {
   }
 
   setActiveCard(index) {
-    console.log('index used at setactive card', index, this.state.cards[index]);
     if (index > 0) {
-      this.setState(state => { state.activeCard = state.cards[Number(index)]; });
+      this.setState(state => {
+        return {
+          activeCard: state.cards[index]
+        };
+      });
     } else {
       this.setState({ activeCard: this.state.cards[0] });
     }

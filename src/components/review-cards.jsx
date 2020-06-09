@@ -28,7 +28,6 @@ export default class ReviewCards extends React.Component {
     } else {
       this.setState({ currentCard: this.state.currentCard + 1 });
     }
-    console.log('index after state update', this.state.currentCard);
     this.context.setActiveCard(this.state.currentCard);
   }
 
