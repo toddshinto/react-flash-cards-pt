@@ -14,6 +14,8 @@ class App extends React.Component {
     };
     this.setView = this.setView.bind(this);
     this.getView = this.getView.bind(this);
+    this.addCard = this.addCard.bind(this);
+    this.saveCards = this.saveCards.bind(this);
   }
 
   setView(hello) {
@@ -41,12 +43,16 @@ class App extends React.Component {
   }
 
   addCard(card) {
-    const newDeck = this.state.cards.splice(0, this.state.cards.length);
+    const newDeck = this.state.cards.slice(0, this.state.cards.length);
     newDeck.push(card);
-    this.setState(newDeck, () => this.saveCards());
+    this.setState(
+      { cards: newDeck },
+      () => this.saveCards()
+    );
   }
 
   render() {
+    // eslint-disable-next-line no-console
     console.log(this.state.cards);
     return (
       <AppContext.Provider value={{ setView: this.setView, addCard: this.addCard }}>

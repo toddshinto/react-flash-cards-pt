@@ -9,6 +9,8 @@ class CreateCard extends React.Component {
       answer: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleChange(event) {
@@ -40,6 +42,7 @@ class CreateCard extends React.Component {
         <input onChange={this.handleChange} type="text" placeholder="Question" name="question"></input>
         <label>Answer</label>
         <input onChange={this.handleChange} type="text" placeholder="Answer" name="answer"></input>
+        <button type="submit">Submit</button>
       </form>
     );
   }
