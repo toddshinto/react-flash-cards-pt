@@ -33,16 +33,33 @@ class CreateCard extends React.Component {
       answer: this.state.answer
     };
     this.context.addCard(card);
+    this.handleReset();
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Question</label>
-        <input onChange={this.handleChange} type="text" placeholder="Question" name="question"></input>
-        <label>Answer</label>
-        <input onChange={this.handleChange} type="text" placeholder="Answer" name="answer"></input>
-        <button type="submit">Submit</button>
+      <form onSubmit={this.handleSubmit} className="col-4 justify-content-center">
+        <div className={`form-group border rounded-lg p-5 text-white ${this.state.question ? 'bg-info' : 'bg-secondary'}`}>
+          <input
+            className={'form-control '}
+            onChange={this.handleChange}
+            type="text"
+            placeholder="Question"
+            name="question"
+            id="question"
+            value={this.state.question} />
+        </div>
+        <div className={`form-group border rounded-lg p-5 text-white ${this.state.answer ? 'bg-info' : 'bg-secondary'}`}>
+          <input
+            className="form-control"
+            onChange={this.handleChange}
+            type="text"
+            placeholder="Answer"
+            name="answer"
+            id="answer"
+            value={this.state.answer} />
+        </div>
+        <button type="submit" className={`btn text-white ${this.state.question && this.state.answer ? 'btn-success' : 'btn-danger'}`}>Submit</button>
       </form>
     );
   }

@@ -57,7 +57,9 @@ class App extends React.Component {
         <h1 className="text-center">Flash Card App</h1>
         <div>
           <Nav />
-          {this.getView()}
+          <div className="row justify-content-center mt-3 col-l-12">
+            {this.getView()}
+          </div>
         </div>
       </AppContext.Provider>
     );

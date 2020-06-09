@@ -5,7 +5,7 @@ class Nav extends React.Component {
   render() {
     const view = this.context.currentView;
     return (
-      <div className="row justify-content-end">
+      <div className="row justify-content-end mt-3">
         <button
           type="button"
           className={`btn ${view === 'view-cards' ? 'btn-primary' : 'btn-light'}`}
