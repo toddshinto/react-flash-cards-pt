@@ -11,7 +11,7 @@ export default class App extends React.Component {
     this.state = {
       view: 'view-cards',
       cards: [],
-      activeCard: ''
+      activeCard: {}
     };
     this.setView = this.setView.bind(this);
     this.getView = this.getView.bind(this);
@@ -54,7 +54,12 @@ export default class App extends React.Component {
   }
 
   setActiveCard(index) {
-    this.setState(state => { state.activeCard = state.cards[index]; });
+    console.log('index used at setactive card', index, this.state.cards[index]);
+    if (index > 0) {
+      this.setState(state => { state.activeCard = state.cards[Number(index)]; });
+    } else {
+      this.setState({ activeCard: this.state.cards[0] });
+    }
   }
 
   render() {
@@ -64,7 +69,8 @@ export default class App extends React.Component {
         addCard: this.addCard,
         currentView: this.state.view,
         cards: this.state.cards,
-        activeCard: this.state.activeCard
+        activeCard: this.state.activeCard,
+        setActiveCard: this.setActiveCard
       }}>
         <h1 className="text-center">Flash Card App</h1>
         <div>

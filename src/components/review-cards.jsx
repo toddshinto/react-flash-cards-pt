@@ -6,13 +6,20 @@ export default class ReviewCards extends React.Component {
     super(props);
     this.state = {
       currentCard: 0,
-      side: 'front'
+      front: true
     };
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.nextCard = this.nextCard.bind(this);
+    this.previousCard = this.previousCard.bind(this);
   }
 
   componentDidMount() {
     this.context.setActiveCard(this.state.currentCard);
+  }
+
+  handleClick() {
+    this.setState({ front: !this.state.front });
   }
 
   nextCard() {
@@ -21,6 +28,7 @@ export default class ReviewCards extends React.Component {
     } else {
       this.setState({ currentCard: this.state.currentCard + 1 });
     }
+    console.log('index after state update', this.state.currentCard);
     this.context.setActiveCard(this.state.currentCard);
   }
 
@@ -34,7 +42,28 @@ export default class ReviewCards extends React.Component {
   }
 
   render() {
-    return <h1>Review Cards</h1>;
+    const card = this.context.activeCard;
+    let side;
+    if (card) {
+      (this.state.front) ? side = card.question : side = card.answer;
+    }
+    return (
+      <div id="card-carousel" className="carousel slide">
+        <div className="card text-white" onClick={this.handleClick}>
+          <div className={`card-body ${this.state.front ? 'bg-primary' : 'bg-info'}`}>
+            <p className="card-text">{side}</p>
+          </div>
+        </div>
+        <a className="carousel-control-prev" href="#card-carousel" role="button" onClick={this.previousCard}>
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="sr-only">Previous Card</span>
+        </a>
+        <a className="carousel-control-next" href="#card-carousel" role="button" onClick={this.nextCard}>
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="sr-only">Next Card</span>
+        </a>
+      </div>
+    );
   }
 }
 
