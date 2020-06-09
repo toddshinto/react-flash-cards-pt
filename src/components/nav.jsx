@@ -12,5 +12,6 @@ class Nav extends React.Component {
     );
   }
 }
+
 Nav.contextType = AppContext;
 export default Nav;
