@@ -10,7 +10,8 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       view: 'view-cards',
-      cards: []
+      cards: [],
+      activeCard: ''
     };
     this.setView = this.setView.bind(this);
     this.getView = this.getView.bind(this);
@@ -51,13 +52,18 @@ export default class App extends React.Component {
     );
   }
 
+  setActiveCard(index) {
+    this.setState(state => { state.activeCard = state.cards[index]; });
+  }
+
   render() {
     return (
       <AppContext.Provider value={{
         setView: this.setView,
         addCard: this.addCard,
         currentView: this.state.view,
-        cards: this.state.cards
+        cards: this.state.cards,
+        activeCard: this.state.activeCard
       }}>
         <h1 className="text-center">Flash Card App</h1>
         <div>
