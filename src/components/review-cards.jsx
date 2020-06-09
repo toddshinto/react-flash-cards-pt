@@ -47,10 +47,10 @@ export default class ReviewCards extends React.Component {
       (this.state.front) ? side = card.question : side = card.answer;
     }
     return (
-      <div id="card-carousel" className="carousel slide">
+      <div id="card-carousel" className="carousel slide mt-3 p-3 col-6">
         <div className="card text-white" onClick={this.handleClick}>
           <div className={`card-body ${this.state.front ? 'bg-primary' : 'bg-info'}`}>
-            <p className="card-text">{side}</p>
+            <p className="card-text text-center">{side}</p>
           </div>
         </div>
         <a className="carousel-control-prev" href="#card-carousel" role="button" onClick={this.previousCard}>

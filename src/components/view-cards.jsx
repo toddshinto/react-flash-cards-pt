@@ -13,6 +13,7 @@ export default class ViewCards extends React.Component {
               <div className="card-body bg-info">
                 <p className="card-text">{card.answer}</p>
               </div>
+              <div className="card-footer bg-warning text-center"><i className="fas fa-trash" /></div>
             </div>
           </div>)}
       </div>
