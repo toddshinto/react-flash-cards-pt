@@ -1,7 +1,23 @@
 import React from 'react';
+import { AppContext } from './app-context';
 
 export default class ViewCards extends React.Component {
   render() {
-    return <h1>View Cards</h1>;
+    const cards = this.context.cards;
+    return (
+      <div className="card-deck">
+        {cards.map(card =>
+          <div key={cards.indexOf(card)} className="col mb-4">
+            <div className="card h-100 text-white">
+              <div className="card-header bg-primary">{card.question}</div>
+              <div className="card-body bg-info">
+                <p className="card-text">{card.answer}</p>
+              </div>
+            </div>
+          </div>)}
+      </div>
+    );
   }
 }
+
+ViewCards.contextType = AppContext;
