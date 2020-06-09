@@ -3,6 +3,7 @@ import ViewCards from './view-cards';
 import ReviewCards from './review-cards';
 import CreateCard from './create-card';
 import Nav from './nav';
+import { AppContext } from './app-context';
 
 class App extends React.Component {
   constructor(props) {
@@ -48,13 +49,13 @@ class App extends React.Component {
   render() {
     console.log(this.state.cards);
     return (
-      <>
+      <AppContext.Provider value={{ setView: this.setView, addCard: this.addCard }}>
         <h1 className="text-center">Flash Card App</h1>
         <div>
-          <Nav setView={this.setView} />
+          <Nav />
           {this.getView()}
         </div>
-      </>
+      </AppContext.Provider>
     );
   }
 }
