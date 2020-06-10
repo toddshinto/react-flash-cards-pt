@@ -40,10 +40,17 @@ export default class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.setState({ cards: JSON.parse(localStorage.getItem('flash-cards')) });
+  }
+
   confirmDelete() {
     const newDeck = this.state.cards.slice(0, this.state.cards.length);
     const deleteDeck = newDeck.filter(card => card !== this.state.activeCard);
-    this.setState({ cards: deleteDeck, activeCard: {} });
+    this.setState(
+      { cards: deleteDeck, activeCard: {} },
+      () => this.saveCards()
+    );
   }
 
   saveCards() {
