@@ -18,6 +18,7 @@ export default class App extends React.Component {
     this.addCard = this.addCard.bind(this);
     this.saveCards = this.saveCards.bind(this);
     this.setActiveCard = this.setActiveCard.bind(this);
+    this.confirmDelete = this.confirmDelete.bind(this);
   }
 
   setView(hello) {
@@ -37,6 +38,12 @@ export default class App extends React.Component {
       default:
         return null;
     }
+  }
+
+  confirmDelete() {
+    const newDeck = this.state.cards.slice(0, this.state.cards.length);
+    const deleteDeck = newDeck.filter(card => card !== this.state.activeCard);
+    this.setState({ cards: deleteDeck, activeCard: {} });
   }
 
   saveCards() {
@@ -73,7 +80,8 @@ export default class App extends React.Component {
         currentView: this.state.view,
         cards: this.state.cards,
         activeCard: this.state.activeCard,
-        setActiveCard: this.setActiveCard
+        setActiveCard: this.setActiveCard,
+        confirmDelete: this.confirmDelete
       }}>
         <h1 className="text-center">Flash Card App</h1>
         <div>
