@@ -6,7 +6,8 @@ export default class CreateCard extends React.Component {
     super(props);
     this.state = {
       question: '',
-      answer: ''
+      answer: '',
+      id: 0
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -22,7 +23,8 @@ export default class CreateCard extends React.Component {
   handleReset() {
     this.setState({
       question: '',
-      answer: ''
+      answer: '',
+      id: this.state.id + 1
     });
   }
 
@@ -30,7 +32,8 @@ export default class CreateCard extends React.Component {
     event.preventDefault();
     const card = {
       question: this.state.question,
-      answer: this.state.answer
+      answer: this.state.answer,
+      id: this.state.id
     };
     this.context.addCard(card);
     this.handleReset();
