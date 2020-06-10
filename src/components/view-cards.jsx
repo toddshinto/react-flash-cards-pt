@@ -34,7 +34,7 @@ export default class ViewCards extends React.Component {
                 <div className="card-body bg-secondary">
                   <p className="card-text">{card.answer}</p>
                 </div>
-                <button type="button" className="text-center bg-warning card-footer text-white btn btn-warning" onClick={() => this.handleClick(this.context.cards.indexOf(card))}><i className="fas fa-trash" /></button>
+                <button type="button" className="text-center bg-warning card-footer text-white btn btn-warning" onClick={() => this.handleClick(cards.indexOf(card))}><i className="fas fa-trash" /></button>
               </div>
             </div>)}
         </div>
